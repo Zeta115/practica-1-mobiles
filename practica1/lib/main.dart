@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,30 +13,64 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Practica 1 PolPallaresMur",
       theme: ThemeData.dark(),
-      home: PantallaSinStack(),
+      home: const Pantalla(),
     );
   }
 }
 
-class PantallaSinStack extends StatelessWidget {
-  const PantallaSinStack({Key? key}) : super(key: key);
+class Pantalla extends StatelessWidget {
+  const Pantalla({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
       children: [
-        Expanded(flex: 4, child: Container()),
         Expanded(
-            flex: 2,
-            child: Row(children: [
-              Align(alignment: Alignment.center, child: Container()),
-              Align(alignment: Alignment.center, child: Container()),
-              Align(alignment: Alignment.center, child: Container()),
-              Align(alignment: Alignment.center, child: Container()),
-            ])),
-        Expanded(flex: 3, child: Container()),
+            flex: 0,
+            child: Container(
+              color: Colors.blue,
+            )),
+        const Align(
+          alignment: Alignment.topLeft,
+        ),
+        Column(children: [
+          Align(
+              alignment: Alignment.topLeft,
+              child: Icon(Icons.heart_broken_outlined, color: Colors.red)),
+          Align(
+              alignment: Alignment.topRight,
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.red,
+              )),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Titular",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              )),
+        ]),
+        const Align(
+          alignment: Alignment.topCenter,
+          //child: Wcirculos(),
+        ),
       ],
     ));
+  }
+}
+
+class Wcirculos extends StatelessWidget {
+  const Wcirculos({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(children: [
+      Container(
+          margin: const EdgeInsets.all(175.0),
+          decoration:
+              const BoxDecoration(color: Colors.red, shape: BoxShape.circle)),
+    ]));
   }
 }
