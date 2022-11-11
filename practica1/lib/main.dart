@@ -69,20 +69,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 45,
-                          width: 45,
-                          margin: const EdgeInsets.all(15.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.lightBlue),
-                          child: const Icon(Icons.car_rental_rounded),
-                        ),
-                      ],
-                    ),
+                    Cuboicono(),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -126,6 +113,7 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: Expanded(
                 child: Container(
+                    padding: EdgeInsets.all(10),
                     height: 400,
                     width: 500,
                     color: Colors.white,
@@ -179,95 +167,28 @@ class MyApp extends StatelessWidget {
                         Align(
                           alignment: Alignment.center,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    margin: const EdgeInsets.all(15.0),
-                                    decoration: const BoxDecoration(
-                                        color: Colors.orange,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(Icons.car_rental_rounded),
-                                  ),
-                                  const Text(
-                                    "Travel",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    margin: const EdgeInsets.all(15.0),
-                                    decoration: const BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(Icons.surfing),
-                                  ),
-                                  const Text(
-                                    "Surf",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    margin: const EdgeInsets.all(15.0),
-                                    decoration: const BoxDecoration(
-                                        color: Colors.pink,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(Icons.restaurant),
-                                  ),
-                                  const Text(
-                                    "Food",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    margin: const EdgeInsets.all(15.0),
-                                    decoration: const BoxDecoration(
-                                        color: Colors.grey,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(Icons.bathroom),
-                                  ),
-                                  const Text(
-                                    "Bath",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const ColumnaIconoTexto(
-                                subtitulo: 'AAA',
-                                colorinter: Colors.yellow,
-                              ),
+                              Columnacirculos(
+                                  letras: 'Travel',
+                                  colorcirculo: Colors.orangeAccent,
+                                  icono: Icons.car_rental),
+                              Columnacirculos(
+                                  letras: 'Surf',
+                                  colorcirculo: Colors.blue,
+                                  icono: Icons.surfing),
+                              Columnacirculos(
+                                  letras: 'Food',
+                                  colorcirculo: Colors.pink,
+                                  icono: Icons.restaurant),
+                              Columnacirculos(
+                                  letras: 'Bath',
+                                  colorcirculo: Colors.grey,
+                                  icono: Icons.bathroom),
+                              Columnacirculos(
+                                  letras: 'Drink',
+                                  colorcirculo: Colors.yellow,
+                                  icono: Icons.local_drink),
                             ],
                           ),
                         ),
@@ -352,12 +273,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ColumnaIcono extends StatelessWidget {
-  const ColumnaIcono({Key? key}) : super(key: key);
+class Cuboicono extends StatelessWidget {
+  const Cuboicono({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
@@ -369,135 +292,42 @@ class ColumnaIcono extends StatelessWidget {
           child: const Icon(Icons.car_rental_rounded),
         ),
       ],
-    ));
-  }
-}
-
-class ColumnaIconoTexto extends StatelessWidget {
-  const ColumnaIconoTexto(
-      {Key? key, required this.subtitulo, required this.colorinter})
-      : super(key: key);
-  final String subtitulo;
-  final Color colorinter;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 45,
-            width: 45,
-            margin: const EdgeInsets.all(15.0),
-            decoration:
-                BoxDecoration(color: colorinter, shape: BoxShape.circle),
-          ),
-          Text(
-            subtitulo,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
 
-
-
-
-/*
-class circuloTexto extends StatelessWidget {
-  const circuloTexto({Key? key}) : super(key: key);
-
-  @override
-  String titulo;
-
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      height: 45,
-      width: 45,
-      margin: const EdgeInsets.all(20.0),
-      decoration:
-          const BoxDecoration(color: Colors.red, shape: BoxShape.circle),
-      child: Text(
-        '$titulo',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-          color: Colors.black,
-        ),
-      ),
-    ));
-  }
-}
-*/
-
-/*
-class Pantalla extends StatelessWidget {
-  const Pantalla({Key? key}) : super(key: key);
+class Columnacirculos extends StatelessWidget {
+  final String letras;
+  final Color colorcirculo;
+  final IconData icono;
+  const Columnacirculos({
+    Key? key,
+    required this.letras,
+    required this.colorcirculo,
+    required this.icono,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
+    return Column(
       children: [
-        Expanded(
-            flex: 0,
-            child: Container(
-              color: Colors.blue,
-            )),
-        const Align(
-          alignment: Alignment.topLeft,
+        Container(
+          height: 45,
+          width: 45,
+          margin: const EdgeInsets.all(12.0),
+          decoration:
+              BoxDecoration(color: colorcirculo, shape: BoxShape.circle),
+          child: Icon(icono),
         ),
-        Column(children: [
-          Align(
-              alignment: Alignment.topLeft,
-              child: Icon(Icons.heart_broken_outlined, color: Colors.red)),
-          Align(
-              alignment: Alignment.topRight,
-              child: Icon(
-                Icons.arrow_back,
-                color: Colors.red,
-              )),
-          Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                "Mount of Brecken",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-              )),
-          Expanded(child: Wcirculos()),
-          Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 10),
-              )),
-        ]),
-        const Align(
-          alignment: Alignment.topCenter,
-          //child: Wcirculos(),
+        Text(
+          "$letras",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            color: Colors.black,
+          ),
         ),
       ],
-    ));
+    );
   }
 }
-
-class Wcirculos extends StatelessWidget {
-  const Wcirculos({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(children: [
-      Container(
-          margin: const EdgeInsets.all(175.0),
-          decoration:
-              const BoxDecoration(color: Colors.red, shape: BoxShape.circle)),
-    ]));
-  }
-}
-*/
