@@ -18,15 +18,17 @@ class MyApp extends StatelessWidget {
               flex: 1,
               child: Container(
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://previews.123rf.com/images/remains/remains1411/remains141100412/33534409-telef%C3%A9rico-en-el-fondo-de-cielo-azul-telef%C3%A9rico-equipo-silla-funicular-hay-gente.jpg'))),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(
+                        'https://previews.123rf.com/images/remains/remains1411/remains141100412/33534409-telef%C3%A9rico-en-el-fondo-de-cielo-azul-telef%C3%A9rico-equipo-silla-funicular-hay-gente.jpg'),
+                  ),
+                ),
                 child: Row(
                   children: [
                     Align(
                       widthFactor: 1.5,
-                      heightFactor: 7.5,
+                      heightFactor: 9,
                       alignment: Alignment.topRight,
                       child: Container(
                           width: 30,
@@ -35,64 +37,45 @@ class MyApp extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: Colors.white70),
                           alignment: Alignment.center,
-                          // ignore: prefer_const_constructors
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back,
                             color: Colors.black,
                           )),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 45,
-                          width: 45,
-                          margin: const EdgeInsets.all(15.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.lightBlue),
-                          child: const Icon(Icons.car_rental_rounded),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 45,
-                          width: 45,
-                          margin: const EdgeInsets.all(15.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.lightBlue),
-                          child: const Icon(Icons.car_rental_rounded),
-                        ),
-                      ],
-                    ),
-                    Cuboicono(),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 45,
-                          width: 45,
-                          margin: const EdgeInsets.all(15.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.lightBlue),
-                          child: const Text(
-                            '\n+12',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        children: [
+                          const Cuboimagen(
+                              imagenes:
+                                  'https://img.freepik.com/vector-gratis/fondo-invierno-diseno-plano_23-2148715242.jpg?w=2000'),
+                          const Cuboimagen(
+                              imagenes:
+                                  'https://elements-cover-images-0.imgix.net/5639f019-ccaf-40f4-bfd2-692f313dc9a4?auto=compress%2Cformat&fit=max&w=900&s=3e311aa894ad30523b4f2fba7591534e'),
+                          const Cuboimagen(
+                              imagenes:
+                                  'https://images.unsplash.com/photo-1551582045-6ec9c11d8697?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80'),
+                          Container(
+                            height: 45,
+                            width: 45,
+                            margin: const EdgeInsets.all(15.0),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.black54),
+                            child: const Text(
+                              '\n+12',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                     Align(
-                      heightFactor: 7.5,
+                      heightFactor: 9,
                       alignment: Alignment.topRight,
                       child: Container(
                           width: 30,
@@ -113,7 +96,7 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: Expanded(
                 child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     height: 400,
                     width: 500,
                     color: Colors.white,
@@ -140,7 +123,7 @@ class MyApp extends StatelessWidget {
                               style:
                                   TextStyle(fontSize: 15, color: Colors.black),
                             ),
-                            Padding(padding: EdgeInsets.all(40.0)),
+                            Padding(padding: EdgeInsets.all(35.0)),
                             Align(),
                             Icon(
                               Icons.star,
@@ -273,26 +256,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Cuboicono extends StatelessWidget {
-  const Cuboicono({
+class Cuboimagen extends StatelessWidget {
+  final String imagenes;
+  const Cuboimagen({
     Key? key,
+    required this.imagenes,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          height: 45,
-          width: 45,
-          margin: const EdgeInsets.all(15.0),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.lightBlue),
-          child: const Icon(Icons.car_rental_rounded),
-        ),
-      ],
-    );
+    return (Container(
+      height: 45,
+      width: 45,
+      margin: const EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: NetworkImage(imagenes),
+          )),
+    ));
   }
 }
 
@@ -320,8 +303,8 @@ class Columnacirculos extends StatelessWidget {
           child: Icon(icono),
         ),
         Text(
-          "$letras",
-          style: TextStyle(
+          letras,
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,
             color: Colors.black,
